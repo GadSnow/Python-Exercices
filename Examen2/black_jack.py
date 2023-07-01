@@ -19,7 +19,7 @@ def random_card() ->  list[str]:
         ['valet', 'carreau'], ['dame', 'carreau'], ['roi', 'carreau'], ['as', 'carreau'],
     ]
 
-    random_number = randint(0, len(possibilities) - 1)
+    random_number = randint(0,len(possibilities) - 1)
 
     return possibilities[random_number]
 

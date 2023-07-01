@@ -8,20 +8,23 @@ def longer_list(numbers: list[int]) -> list[int]:
 
     """
     values = []
-    for i in range(len(numbers) - 2):
-        current_value = 1
-        for j in range(i + 1, len(numbers) - 1):
-            state = True
-            while state:
-                if numbers[i] < numbers[j]:
-                    current_value += 1
-                    i = j; j += 1
-                else:
-                    values.append(current_value)
-                    state = False
-                    break
-            break
+    n = 0; k = len(numbers) - 1
 
+    for i in range(n, k):
+        current_value  = 1
+        if numbers[i] < numbers[i + 1]:
+            state = True
+            while state and i <= len(numbers) - 2:
+                if numbers[i] < numbers[i + 1]:
+                    current_value += 1
+                    i += 1
+                else:
+                    state = False
+            else:
+                values.append(current_value)
+                state = False
+                
+    print(values)
     return max(values)
 
-# print(longer_list([16, 5, 10, 31, 2, 4, 19, 27, 3, 18]))
+print(longer_list([16, 5, 10, 31, 2, 4, 19, 27, 3, 18]))
